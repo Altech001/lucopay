@@ -5,7 +5,7 @@ import os
 from fastapi import FastAPI, status, HTTPException
 import httpx
 import requests
-from models import models
+from . import models
 from functions.identity import validate_mobile_number
 import logging
 import config
@@ -133,7 +133,6 @@ async def request_payment(payment: models.PaymentModel):
 
 
 # WEBHOOK TO CHECK TRANSACTION STATUS
-
 
 @app.post(
     "/api/v1/payment_webhook",
